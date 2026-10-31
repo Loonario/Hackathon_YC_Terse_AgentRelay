@@ -1,0 +1,16 @@
+{
+  "island": {
+    "key": "island_fg",
+    "x": 535,
+    "y": 567,
+    "w": 390,
+    "h": 349,
+    "footprint": {
+      "room": "kitchen",
+      "x": 3,
+      "y": 4,
+      "w": 4,
+      "h": 2
+    }
+  }
+}

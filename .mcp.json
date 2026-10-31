@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "agent-relay": {
+      "type": "stdio",
+      "command": "./scripts/relay-mcp.sh",
+      "args": []
+    }
+  }
+}

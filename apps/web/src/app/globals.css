@@ -1,0 +1,109 @@
+@import "tailwindcss";
+
+/* APPLIANCE UPRISING: night-kitchen sci-fi palette, taken from the reference mock-up. */
+:root {
+  --bg: #0b0a17;
+  --panel: rgb(21 19 42 / 0.86);
+  --panel-solid: #15132a;
+  --panel-2: #1d1a38;
+  --line: #3a3366;
+  --line-hi: #7a6ff0;
+  --text: #ecebff;
+  --muted: #9a95c9;
+  --faint: #5f5a8c;
+  --accent: #7cf7ff;
+  --pink: #ff5fa2;
+  --warn: #ffb84d;
+  --danger: #ff5a4f;
+  --ok: #6ee7a0;
+  --power: #ffd84d;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-panel-solid: var(--panel-solid);
+  --color-panel-2: var(--panel-2);
+  --color-line: var(--line);
+  --color-line-hi: var(--line-hi);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-pink: var(--pink);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+  --color-ok: var(--ok);
+  --color-power: var(--power);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-pixel: var(--font-pixel);
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+  overflow: hidden;
+}
+
+/* Beveled pixel panel, like the reference UI. */
+.panel {
+  background: var(--panel);
+  border: 2px solid var(--line);
+  border-radius: 10px;
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.03),
+    0 10px 30px rgb(0 0 0 / 0.45);
+  backdrop-filter: blur(6px);
+}
+
+.pixel {
+  font-family: var(--font-pixel), monospace;
+  letter-spacing: 0.02em;
+}
+
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+.img-pixel {
+  image-rendering: pixelated;
+}
+
+@keyframes msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.msg-in {
+  animation: msg-in 260ms ease-out both;
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(124 247 255 / 0.45);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgb(124 247 255 / 0);
+  }
+}
+.pulse-ring {
+  animation: pulse-ring 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .msg-in,
+  .pulse-ring {
+    animation: none;
+  }
+}

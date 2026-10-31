@@ -1,0 +1,20 @@
+{
+  "name": "hackathon-proj",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/web",
+    "packages/*",
+    "scripts"
+  ],
+  "scripts": {
+    "dev": "bun run --filter web dev",
+    "dev:actor": "cd apps/actor && terse actor dev",
+    "generate": "cd apps/web && terse actor generate --out-dir src/generated --non-interactive",
+    "deploy:actor": "cd apps/actor && terse deploy",
+    "typecheck": "bun run --filter '*' typecheck",
+    "check": "bun --env-file=apps/web/.env.local scripts/check-setup.ts",
+    "dev:relay": "mkdir -p .relay && npx -y @relaycast/engine --db .relay/relaycast.db --port 8787"
+  },
+  "packageManager": "bun@1.4.4"
+}
